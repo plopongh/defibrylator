@@ -25,6 +25,7 @@ public class SimpleClient extends ConnectedThingClient {
     }
 
     public static void main(String[] args) throws Exception {
+        // client configurator
         ClientConfigurator config = new ClientConfigurator();
         config.setUri("ws://localhost:8080/Thingworx/WS");
         config.setAppKey("83fbbcaa-2163-49e9-83e1-9fe4a45a8370");

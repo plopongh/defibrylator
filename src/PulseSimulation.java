@@ -15,6 +15,7 @@ public class PulseSimulation extends ConnectedThingClient {
     }
 
     public static void main(String[] args) throws Exception {
+        // client configurator
         ClientConfigurator config = new ClientConfigurator();
         config.setUri("ws://localhost:8080/Thingworx/WS");
         config.setAppKey("83fbbcaa-2163-49e9-83e1-9fe4a45a8370");
@@ -46,19 +47,19 @@ public class PulseSimulation extends ConnectedThingClient {
                 } else {
                     modifier = -oldIntValue;
                 }
-                System.out.println("plop1: " + modifier);
+                System.out.println("plop11: " + modifier);
                 int newValue = oldIntValue + modifier;
-                System.out.println("plop2: " + newValue);
+                System.out.println("plop22: " + newValue);
                 if (newValue >= 0) {
                     System.out.println("plop: " + newValue);
                     client.writeProperty(ThingworxEntityTypes.Things, thingName, "pulse",
                             new IntegerPrimitive(newValue), 1000000);
                 }
             } catch (GenericHTTPException ex) {
-                System.out.println("plop2: " + ex);
+                System.out.println("plop22: " + ex);
                 break;
             } catch (Exception ex) {
-                System.out.println("plop2: " + ex);
+                System.out.println("plop22: " + ex);
                 ex.printStackTrace();
                 break;
             }
