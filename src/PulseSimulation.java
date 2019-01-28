@@ -14,6 +14,7 @@ public class PulseSimulation extends ConnectedThingClient {
         super(config);
     }
 
+
     public static void main(String[] args) throws Exception {
         // client configurator
         ClientConfigurator config = new ClientConfigurator();
@@ -37,7 +38,6 @@ public class PulseSimulation extends ConnectedThingClient {
                 System.out.println("plop thingProperty: " + thingProperty.toString());
 
                 int oldIntValue = (int) Float.parseFloat("" + thingProperty);
-//                if (oldIntValue == 0) continue;
                 int modifier = rand.nextInt(202);
                 System.out.println("plop modifier: " + modifier);
                 if (modifier < 101) {
@@ -51,7 +51,6 @@ public class PulseSimulation extends ConnectedThingClient {
                 int newValue = oldIntValue + modifier;
                 System.out.println("plop22: " + newValue);
                 if (newValue >= 0) {
-                    System.out.println("plop: " + newValue);
                     client.writeProperty(ThingworxEntityTypes.Things, thingName, "pulse",
                             new IntegerPrimitive(newValue), 1000000);
                 }
