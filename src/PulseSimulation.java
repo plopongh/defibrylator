@@ -18,7 +18,7 @@ public class PulseSimulation extends ConnectedThingClient {
         // client configurator
         ClientConfigurator config = new ClientConfigurator();
         config.setUri("ws://localhost:8080/Thingworx/WS");
-        config.setAppKey("83fbbcaa-2163-49e9-83e1-9fe4a45a8370");
+        config.setAppKey("e8d205f8-9fc5-4c02-b1a7-19074369a242");
         config.ignoreSSLErrors(true);
         PulseSimulation client = new PulseSimulation(config);
         client.start();
@@ -55,6 +55,8 @@ public class PulseSimulation extends ConnectedThingClient {
                     client.writeProperty(ThingworxEntityTypes.Things, thingName, "pulse",
                             new IntegerPrimitive(newValue), 1000000);
                 }
+                client.writeProperty(ThingworxEntityTypes.Things, thingName, "temperature",
+                        new IntegerPrimitive(36), 1000000);
             } catch (GenericHTTPException ex) {
                 System.out.println("plop22: " + ex);
                 break;
